@@ -24,18 +24,31 @@ if (isset($_POST['login'])) {
 
 
         session_start();
-        $dtls = file_get_contents('../Model/signup.json');
+        $dtls = file_get_contents('../controller/signup.json');
         $dtlsok = json_decode($dtls);
 
         foreach ($dtlsok as $ok) {
             $email= $ok->email;
             $userpassword= $ok->userpassword;
+            $username= $ok->username;
+            $address= $ok->address;
+            $phone= $ok->phone;
+            $dob= $ok->dob;
+            $usertype= $ok->usertype;
+           
         }
 
 
         
             if ($_POST['email'] == $email && $_POST['userpassword'] == $userpassword) {
+                $_SESSION['email'] = $email;
                 $_SESSION['username'] = $username;
+                $_SESSION['address'] = $address;
+                $_SESSION['phone'] = $phone;
+                $_SESSION['dob'] = $dob;
+                $_SESSION['usertype'] = $usertype;
+                setcookie('status', 'true', time() + 30000, '/');
+
                 header("location:../view/customer.php");
             } 
             else {

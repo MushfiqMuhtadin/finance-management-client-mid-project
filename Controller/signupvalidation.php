@@ -84,7 +84,7 @@ if (isset($_POST['signup'])) {
             );
             $array_data[] = $extra;
             $final_data = json_encode($array_data);
-            if (file_put_contents('../Model/signup.json', $final_data)) {
+            if (file_put_contents('../controller/signup.json', $final_data)) {
                 header("location: ../View/login.php");
             }
         } else {
