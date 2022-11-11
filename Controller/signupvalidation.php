@@ -69,8 +69,8 @@ if (isset($_POST['signup'])) {
 
     if (empty($usernameerror) &&  empty($lettererror) &&  empty($phoneerror) &&  empty($numbererror) &&  empty($phhonelengtherror) &&  empty($usertypeerror) &&  empty($doverror) &&  empty($emailerror) &&  empty($invalidemail) &&  empty($addresserror) &&  empty($passworderror) &&  empty($passdontmatch)) {
 
-        if (file_exists('../Model/signup.json')) {
-            $current_data = file_get_contents('../Model/signup.json');
+        if (file_exists('../controller/signup.json')) {
+            $current_data = file_get_contents('../controller/signup.json');
             $array_data = json_decode($current_data, true);
             $extra = array(
                 'username'     =>     $username,
